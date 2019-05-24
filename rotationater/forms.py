@@ -1,8 +1,41 @@
 from django import forms
 
 BLUE_CHOICES = (
-    ('1', 'Foo'),
-    ('2', 'Bar'),
+    ('1', 'Play Feature'),
+    ('2', 'Beach '),
+    ('3', 'Sails '),
+    ('4', 'Break'),
+    ('5', 'Peninsula'),
+    ('6', 'Lap Chair 1'),
+    ('7', 'Lap Chair 2'),
+    ('8', 'Duty'),
+    ('9', 'Lap chair 3'),
+    ('10', 'C. Roam'),
+    ('11', 'Lap Chair 4'),
+    ('11', 'Break'),
+)
+
+GREEN_CHOICES = (
+    ('1', 'Adventure Slides'),
+    ('2', 'Catch Pool'),
+    ('3', 'Lily Pads (Wknd)'),
+    ('4', 'Lazy Green'),
+    ('5', 'Break'),
+    ('6', 'Dive Well'),
+    ('7', 'Rock Wall'),
+    ('8', 'Plunge Slide'),
+    ('9', 'Duty'),
+)
+
+RED_CHOICES = (
+    ('1', 'Indoor'),
+    ('2', 'Kiddie'),
+    ('3', 'Kiddie 2 (Wknd)'),
+    ('4', 'Red Duty'),
+    ('5', 'Lazy River Chair 1'),
+    ('6', 'Lazy River Chair 2'),
+    ('7', 'Lazy River Chair 3'),
+    ('8', 'Break'),
 )
 
 
@@ -13,14 +46,20 @@ class Form(forms.Form):
         ),
     )
     blue = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.CheckboxSelectMultiple(
+            attrs=dict(checked=True),
+        ),
         choices=BLUE_CHOICES,
     )
     red = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
-        choices=BLUE_CHOICES,
+        widget=forms.CheckboxSelectMultiple(
+            attrs=dict(checked=True),
+        ),
+        choices=RED_CHOICES,
     )
-    yellow = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
-        choices=BLUE_CHOICES,
+    green = forms.MultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple(
+            attrs=dict(checked=True),
+        ),
+        choices=GREEN_CHOICES,
     )
