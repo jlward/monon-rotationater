@@ -25,7 +25,9 @@ SECRET_KEY = '&%!t!d9&1$m*ojk*%hkcpo-=@u!^iov#w1ndqtn2nvk-2^^luu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'monon-rotationater.herokuapp.com',
+]
 
 
 # Application definition
