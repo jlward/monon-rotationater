@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'monon-rotationater.herokuapp.com',
+    'localhost',
 ]
 
 
@@ -55,7 +56,12 @@ ROOT_URLCONF = 'rotationater.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(
+                os.path.abspath(os.path.dirname(__file__)),
+                'templates',
+            ),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
