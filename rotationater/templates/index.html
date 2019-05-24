@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Rotationater</title>
-  </head>
-  <body>
-      {{ form.names }}
-      <br />
-      {{ form.blue }}
-      {{ form.red }}
-      {{ form.green }}
+    <head> <meta charset="UTF-8"> <title>Rotationater</title> </head>
+    <body>
+        <form method='post'>
+            {% csrf_token %}
+            {{ form.names }}
+            <br />
+            {{ form.blue }}
+            {% if blue_bucket %}
+                {% for name in blue_bucket %}
+                <p>{{ name }}</p>
+                {% endfor %}
+            {% endif %}
+            {{ form.red }}
+            {% if red_bucket %}
+                {% for name in red_bucket %}
+                <p>{{ name }}</p>
+                {% endfor %}
+            {% endif %}
+            {{ form.green }}
+            {% if green_bucket %}
+                {% for name in green_bucket %}
+                <p>{{ name }}</p>
+                {% endfor %}
+            {% endif %}
+            <input type='submit' value='Randomize'>
+        </form>
 
-  </body>
+    </body>
 </html>

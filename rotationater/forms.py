@@ -1,3 +1,5 @@
+import random
+
 from django import forms
 
 BLUE_CHOICES = (
@@ -63,3 +65,26 @@ class Form(forms.Form):
         ),
         choices=GREEN_CHOICES,
     )
+
+    def clean_names(self):
+        names = [
+            name.strip() for name in self.cleaned_data['names'].split('\r\n')
+        ]
+        random.shuffle(names)
+        self.cleaned_data['names'] = names
+        return names
+
+    def clean_blue(self):
+        blue = len(self.cleaned_data['blue'])
+        self.cleaned_data['blue'] = blue
+        return blue
+
+    def clean_red(self):
+        red = len(self.cleaned_data['red'])
+        self.cleaned_data['red'] = red
+        return red
+
+    def clean_green(self):
+        green = len(self.cleaned_data['green'])
+        self.cleaned_data['green'] = green
+        return green
