@@ -69,6 +69,7 @@ class Form(forms.Form):
     def clean_names(self):
         names = [
             name.strip() for name in self.cleaned_data['names'].split('\r\n')
+            if not name.startswith('Waterpark') and name.strip()
         ]
         random.shuffle(names)
         self.cleaned_data['names'] = names
