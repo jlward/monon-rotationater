@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
+from .forms import Form
+
 
 def index(request):
-    context = dict()
+    form = Form()
+    context = dict(
+        form=form,
+    )
     return render(
         request=request,
         template_name='index.html',
