@@ -35,6 +35,11 @@
         ul {
             list-style: none;
         }
+        @media print {
+            .not-print {
+                display: none;
+            }
+        }
         </style>
     </head>
     <body>
@@ -42,24 +47,28 @@
         <form method='post'>
             {% csrf_token %}
             <div class="container">
-                <div class="row justify-content-md-center">
+                <div class="row justify-content-md-center not-print">
                     <div class="col-md-auto">
                         {{ form.names }}
                     </div>
                 </div>
-                <div class="row top">
+                <div class="row top not-print">
                     <div class="col-sm blue">
+                        <h2>Blue</h2>
                         {{ form.blue }}
                     </div>
                     <div class="col-sm red">
+                        <h2>Red</h2>
                         {{ form.red }}
                     </div>
                     <div class="col-sm green">
+                        <h2>Green</h2>
                         {{ form.green }}
                     </div>
                 </div>
                 <div class="row bottom">
                     <div class="col-sm blue">
+                        <h2>Blue</h2>
                         <ul>
                         {% if blue_bucket %}
                             {% for name in blue_bucket %}
@@ -69,6 +78,7 @@
                         </ul>
                     </div>
                     <div class="col-sm red">
+                        <h2>Red</h2>
                         <ul>
                         {% if red_bucket %}
                             {% for name in red_bucket %}
@@ -78,6 +88,7 @@
                         </ul>
                     </div>
                     <div class="col-sm green">
+                        <h2>Green</h2>
                         <ul>
                         {% if green_bucket %}
                             {% for name in green_bucket %}
@@ -87,7 +98,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row justify-content-md-center">
+                <div class="row justify-content-md-center not-print">
                     <div class="col-md-auto">
                         <input class="btn btn-primary" type='submit' value='Randomize'>
                         <a href="{% url 'index' %}" class="btn btn-secondary">Reset</a>
