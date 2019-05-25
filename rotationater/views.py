@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.shortcuts import render
 
 from .forms import Form
@@ -16,10 +18,17 @@ def index(request):
     blue_bucket = []
     green_bucket = []
     red_bucket = []
+    if date.today().weekday() in [5, 6]:  # Saturday/Sunday
+        green_defualt = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        red_default = ['1', '2', '3', '4', '5', '6', '7', '8']
+    else:
+        green_defualt = ['1', '2', '4', '5', '6', '7', '8', '9']
+        red_default = ['1', '2', '4', '5', '6', '7', '8']
+    print(date.today().weekday())
     initial = dict(
         blue=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-        green=['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-        red=['1', '2', '3', '4', '5', '6', '7', '8'],
+        green=green_defualt,
+        red=red_default,
     )
     form = Form(initial=initial)
     if request.method == 'POST':
