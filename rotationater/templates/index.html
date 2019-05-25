@@ -1,31 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head> <meta charset="UTF-8"> <title>Rotationater</title> </head>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Rotationater</title>
+        <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        .red {
+          background-color: #FFAFBB;
+        }
+        .blue {
+          background-color: #D6F7F3;
+        }
+        .green {
+          background-color: #AAC6B8;
+        }
+        .top div {
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          margin-top: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        .bottom div {
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+        </style>
+    </head>
     <body>
+        <hr/>
         <form method='post'>
             {% csrf_token %}
-            {{ form.names }}
-            <br />
-            {{ form.blue }}
-            {% if blue_bucket %}
-                {% for name in blue_bucket %}
-                <p>{{ name }}</p>
-                {% endfor %}
-            {% endif %}
-            {{ form.red }}
-            {% if red_bucket %}
-                {% for name in red_bucket %}
-                <p>{{ name }}</p>
-                {% endfor %}
-            {% endif %}
-            {{ form.green }}
-            {% if green_bucket %}
-                {% for name in green_bucket %}
-                <p>{{ name }}</p>
-                {% endfor %}
-            {% endif %}
-            <input type='submit' value='Randomize'>
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        {{ form.names }}
+                    </div>
+                </div>
+                <div class="row top">
+                    <div class="col-sm blue">
+                        {{ form.blue }}
+                    </div>
+                    <div class="col-sm red">
+                        {{ form.red }}
+                    </div>
+                    <div class="col-sm green">
+                        {{ form.green }}
+                    </div>
+                </div>
+                <div class="row bottom">
+                    <div class="col-sm blue">
+                        {% if blue_bucket %}
+                            {% for name in blue_bucket %}
+                            <p>{{ name }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="col-sm red">
+                        {% if red_bucket %}
+                            {% for name in red_bucket %}
+                            <p>{{ name }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="col-sm green">
+                        {% if green_bucket %}
+                            {% for name in green_bucket %}
+                            <p>{{ name }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        <input type='submit' value='Randomize'>
+                    </div>
+                </div>
+            </div>
         </form>
-
+        <hr/>
     </body>
 </html>
