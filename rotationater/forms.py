@@ -48,21 +48,15 @@ class Form(forms.Form):
         ),
     )
     blue = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple(
-            attrs=dict(checked=True),
-        ),
+        widget=forms.CheckboxSelectMultiple,
         choices=BLUE_CHOICES,
     )
     red = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple(
-            attrs=dict(checked=True),
-        ),
+        widget=forms.CheckboxSelectMultiple,
         choices=RED_CHOICES,
     )
     green = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple(
-            attrs=dict(checked=True),
-        ),
+        widget=forms.CheckboxSelectMultiple,
         choices=GREEN_CHOICES,
     )
 

@@ -16,7 +16,12 @@ def index(request):
     blue_bucket = []
     green_bucket = []
     red_bucket = []
-    form = Form()
+    initial = dict(
+        blue=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
+        green=['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        red=['1', '2', '3', '4', '5', '6', '7', '8'],
+    )
+    form = Form(initial=initial)
     if request.method == 'POST':
         form = Form(request.POST)
         if form.is_valid():
