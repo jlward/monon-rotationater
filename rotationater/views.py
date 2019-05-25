@@ -24,7 +24,6 @@ def index(request):
     else:
         green_defualt = ['1', '2', '4', '5', '6', '7', '8', '9']
         red_default = ['1', '2', '4', '5', '6', '7', '8']
-    print(date.today().weekday())
     initial = dict(
         blue=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
         green=green_defualt,
